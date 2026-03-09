@@ -16,7 +16,16 @@ import java.util.Optional;
 public class Calculator {
 
     public Double divide(Double divisor, Double denominator) throws DivideByZeroException, NullNumberInDivision {
-        return denominator/divisor;
+        if (divisor != 0){
+            return denominator/divisor;
+        } else if (divisor == null || denominator == null){
+            if (divisor == null){
+                throw new NullNumberInDivision("El divisor no puede ser NULL", divisor);
+            } else {
+                throw new NullNumberInDivision("El denominador no puede ser NULL", denominator);
+            }
+        }
+        throw new DivideByZeroException(divisor);
     }
 
     public Optional<Double> average(List<Double> numbers) throws DivideByZeroException, NullNumberInDivision, EmptyListException {
