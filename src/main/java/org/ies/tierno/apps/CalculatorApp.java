@@ -16,8 +16,9 @@ import java.util.*;
 @Log4j
 public class CalculatorApp implements App{
     Scanner scanner;
-    public void run(){
-
+    public void run() throws DivideByZeroException, NullNumberInDivision, EmptyListException, OptionOutOfMenuException {
+        Calculator calculator = new Calculator();
+        menu(calculator);
     }
 
     private void printMenu(){
